@@ -5,6 +5,7 @@ package fr.univavignon.rodeo.api;
  * 
  * @author fv
  */
+//
 public interface IAnimal extends INamedObject {
 
 	/**
