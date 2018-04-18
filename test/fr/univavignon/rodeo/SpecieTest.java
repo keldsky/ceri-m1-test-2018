@@ -17,11 +17,12 @@ public class SpecieTest {
 	
 	
 	ISpecie is;
-	List li;
-	@Before
-	public void Instance()
+	
+	List<IAnimal> la;
+	
+	public static ISpecie getInstance()
 	{
-		is = mock(ISpecie.class);
+		ISpecie is = mock(ISpecie.class);
 		
 		when(is.getArea()).thenReturn(10);
 		
@@ -31,13 +32,25 @@ public class SpecieTest {
 		
 		la.add(ia);
 		
-		li = new ArrayList();
+		when(is.getAnimals()).thenReturn(la);
 		
-		li.add("a");
-		li.add("b");
-		li.add("c");
+		return is;
+	}
+	
+	@Before
+	public void Instance()
+	{
+		is = mock(ISpecie.class);
 		
-		when(is.getAnimals()).thenReturn(li);
+		when(is.getArea()).thenReturn(10);
+		
+		IAnimal ia = AnimalTest.getInstance();
+		
+		la = new ArrayList();
+		
+		la.add(ia);
+		
+		when(is.getAnimals()).thenReturn(la);
 		
 	}
 	
@@ -50,7 +63,7 @@ public class SpecieTest {
 	@Test
 	public void testAnimals() {
 		
-		assertEquals(li , is.getAnimals());	
+		assertEquals(la , is.getAnimals());	
 	}
 
 }
