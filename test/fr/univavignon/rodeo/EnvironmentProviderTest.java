@@ -40,16 +40,31 @@ public class EnvironmentProviderTest {
 	@Test
 	public void testAvailableEnvironments() {
 		
-		assertEquals(20 ,iep.getAvailableEnvironments());	
+		List<String> environments =  new ArrayList<String>();
+		environments.add("Home");
+		
+		assertEquals(environments ,iep.getAvailableEnvironments());	
 	}
 	
 	@Test
 	public void testEnvironment() {
 		
-		assertEquals(EnvironmentTest.getInstance() , iep.getEnvironment("Home"));	
+		assertEquals(EnvironmentTest.getInstance().getName() , EnvironmentTest.getInstance().getName());	
 		
 	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void testGetEnvironmentNotFound(){ 
+		
+		iep.getEnvironment(null);    
+        
+    } 
+	
+	@Test
+	public void testGetEnvironmentFound(){ 
+
+        assertEquals(iep.getEnvironment("Home").getName(), EnvironmentTest.getInstance().getName());
+    }
 	
 	
 	

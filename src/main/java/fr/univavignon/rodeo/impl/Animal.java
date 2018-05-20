@@ -3,30 +3,40 @@ package fr.univavignon.rodeo.impl;
 import fr.univavignon.rodeo.api.IAnimal;
 
 public class Animal implements IAnimal {
-
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	private int xp;
+	
+	private boolean secret,boss,endangered;
+	
+	
+	
+	public Animal(String name, int xp,boolean endangered,boolean boss,boolean secret) {
+		super(name);
+		this.xp = xp;
+		this.endangered = endangered;
+		this.secret = secret;
+		this.boss = boss;
+		
+}
 
 	public int getXP() {
 		// TODO Auto-generated method stub
-		return 0;
+		return xp;
 	}
 
 	public boolean isSecret() {
 		// TODO Auto-generated method stub
-		return false;
+		return secret;
 	}
 
 	public boolean isEndangered() {
 		// TODO Auto-generated method stub
-		return false;
+		return endangered;
 	}
 
 	public boolean isBoss() {
 		// TODO Auto-generated method stub
-		return false;
+		return boss;
 	}
 
 }
